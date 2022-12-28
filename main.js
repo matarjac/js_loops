@@ -284,7 +284,7 @@ function fibbonaci(){
     }
 }
 
-fibbonaci();
+// fibbonaci();
 
 
 // 2.
@@ -304,4 +304,134 @@ function isPalindrome(word){
 }
 console.log(isPalindrome('racecar'));
 
+//////////////////////////////////////////////////////////////////////
 
+// 2D arrays Geek Out
+
+// EX-0
+
+let matrix = [['Josh','Michal','Yossi'],['red','blue','purple'],['pen','chair','shirt']];
+
+function printMatrix(){
+    let values = '';
+    for (let i =0; i<matrix.length; i++){
+        let innerArray = matrix[i];
+        for(let j=0; j<innerArray.length; j++){
+            values += `${innerArray[j]} `;
+        }
+        console.log(values);
+        values='';
+    }
+}
+printMatrix();
+console.log(matrix);
+
+// EX-1
+
+let matrix1 = [[1,2,3],[4,5,6],[7,8,9]];
+
+function sumOfColumns(matrixArray){
+    let resultArray = [];
+    let sum=0;
+    for (let i=0; i<matrixArray.length; i++){
+        for(let j=0;j<matrixArray.length; j++){
+            sum += matrixArray[j][i];
+        }
+        resultArray.push(sum);
+        sum = 0;
+    }
+    return resultArray;
+}
+const columnSums = sumOfColumns(matrix1);
+console.log(columnSums); 
+
+// EX-2
+
+function smallestInRow(matrix){
+    let smallest;
+    let smallestNumbersArray = [];
+
+    for(let i=0;i<matrix.length;i++){
+        let innerArrayLength = matrix[i].length;
+
+        for(j=0;j<innerArrayLength;j++){
+            if (j==0){
+                smallest=matrix[i][j];
+            }
+            if (smallest > matrix[i][j]){
+                smallest = matrix[i][j];
+                
+            } else{
+                continue;
+            }
+        }
+        smallestNumbersArray.push(smallest);
+    }
+    return smallestNumbersArray;
+}
+
+const smallestNumbers = smallestInRow(matrix1);
+console.log(smallestNumbers);
+
+// EX-4
+const messyArray = ["b", 6, "a", "q", 7, 2];
+
+function sortTheArray(array){
+    let strings = [];
+    let numbers = [];
+
+    for (i=0;i<array.length;i++){
+        if (typeof array[i] === 'number'){
+            numbers.push(array[i]);
+        } else{
+            strings.push(array[i]);
+        }
+    }
+    sortedArray = numbers.concat(strings);
+    return sortedArray;
+}
+
+console.log(sortTheArray(messyArray));largestNum
+
+// EX-5
+
+function shuffle(arr){
+    let currentNumber;
+    let newPosition;
+    for(i=0;i<arr.length;i++){
+        currentNumber = arr[i];
+        newPosition = Math.floor(Math.random() * 3);
+        arr[i]=arr[newPosition];
+        arr[newPosition] = currentNumber;
+    }
+    return arr;
+}
+console.log(shuffle([12,30,6]));
+console.log(shuffle([12,30,6]));
+console.log(shuffle([12,30,6]));
+console.log(shuffle([12,30,6]));
+console.log(shuffle([12,30,6]));
+console.log(shuffle([12,30,6]));
+
+
+
+// EX-7
+let pattern = '* * *';
+let steps = ' ';
+for (let i = 0; i<5;i++){
+    steps += ' ';
+    console.log(steps+pattern);
+}
+
+// EX-8
+result = '';
+let space = '';
+console.log('* nested: ')
+for (let i = 5; i>=1; i--){
+    for (let j=1;j<=i;j++){
+        result = result + '* '
+    }
+    
+    console.log(result);
+    result='';
+}
